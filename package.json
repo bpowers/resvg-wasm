@@ -1,0 +1,9 @@
+{
+  "name": "resvg-wasm",
+  "version": "0.1.0",
+  "description": "SVG renderer using resvg as a WebAssembly module",
+  "main": "lib/index.js",
+  "repository": "https://github.com/bpowers/resvg-wasm",
+  "author": "Bobby Powers <bobbypowers@gmail.com>",
+  "license": "MPL-2.0"
+}
