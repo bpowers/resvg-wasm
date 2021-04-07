@@ -8,3 +8,6 @@ Cargo.lock
 /lib
 /core
 /lib.browser
+/perf.data
+/perf.data.old
+/out.png

@@ -1,0 +1,228 @@
+<svg style="width: 406; height: 211;" xmlns="http://www.w3.org/2000/svg" viewBox="380 214 406 211" preserveAspectRatio="xMinYMin" class="InnerCanvas-canvas-1"><style>
+.LabelInner-alignLeft-31 text {
+  text-anchor: end;
+}
+.LabelInner-alignRight-32 text {
+  text-anchor: start;
+}
+.AuxInner-aux-40 {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1;
+}
+.AuxInner-targetGood-41 circle {
+  stroke: rgb(76, 175, 80);
+  stroke-width: 2;
+}
+.AuxInner-targetBad-42 circle {
+  stroke: rgb(244, 67, 54);
+  stroke-width: 2;
+}
+.AuxInner-selected-43 text {
+  fill: #4444dd;
+}
+.AuxInner-selected-43 circle {
+  stroke: #4444dd;
+}
+.AuxInner-indicator-44 {
+  fill: rgb(255, 152, 0);
+  stroke-width: 0;
+}
+.Cloud-cloud-39 {
+  fill: #fff;
+  stroke: #6388dc;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4;
+}
+.Arrowhead-flowArrowhead-18 {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.Arrowhead-flowArrowheadSelected-19 {
+  fill: white;
+  stroke: #4444dd;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.Arrowhead-connArrowhead-20 {
+  fill: gray;
+  stroke: gray;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.Arrowhead-connArrowheadSelected-21 {
+  fill: #4444dd;
+  stroke: #4444dd;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.Arrowhead-arrowheadBg-22 {
+  fill: white;
+  opacity: 0;
+}
+.Conn-connector-7 {
+  fill: none;
+  stroke: gray;
+  stroke-width: 0.5;
+}
+.Conn-connectorSelected-8 {
+  fill: none;
+  stroke: #4444dd;
+  stroke-width: 1;
+}
+.Conn-connectorBg-9 {
+  fill: none;
+  stroke: white;
+  opacity: 0;
+  stroke-width: 7;
+}
+.Conn-connectorB-10 {
+  fill: none;
+  stroke: green;
+  stroke-width: 0.5;
+}
+.Conn-connectorC-11 {
+  fill: none;
+  stroke: red;
+  stroke-width: 0.5;
+}
+.Conn-connectorD-12 {
+  fill: none;
+  stroke: blue;
+  stroke-width: 0.5;
+}
+.Conn-connectorE-13 {
+  fill: none;
+  stroke: purple;
+  stroke-width: 0.5;
+}
+.Conn-dotA-14 {
+  fill: red;
+  stroke-width: 0;
+}
+.Conn-dotB-15 {
+  fill: blue;
+  stroke-width: 0;
+}
+.Conn-dotC-16 {
+  fill: green;
+  stroke-width: 0;
+}
+.Conn-dotD-17 {
+  fill: yellow;
+  stroke-width: 0;
+}
+.StockInner-stock-33 {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1;
+}
+.StockInner-stockSelected-34 {
+  fill: white;
+  stroke: #4444dd;
+  stroke-width: 1;
+}
+.StockInner-targetGood-35 rect {
+  stroke: rgb(76, 175, 80);
+  stroke-width: 2;
+}
+.StockInner-targetBad-36 rect {
+  stroke: rgb(244, 67, 54);
+  stroke-width: 2;
+}
+.StockInner-selected-37 text {
+  fill: #4444dd;
+}
+.StockInner-selected-37 rect {
+  stroke: #4444dd;
+}
+.StockInner-indicator-38 {
+  fill: rgb(255, 152, 0);
+  stroke-width: 0;
+}
+.Flow-flowOuter-23 {
+  fill: none;
+  stroke: #000;
+  stroke-width: 4;
+}
+.Flow-flowOuterSelected-24 {
+  fill: none;
+  stroke: #4444dd;
+  stroke-width: 4;
+}
+.Flow-flowInner-25 {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+}
+.Flow-aux-26 {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1;
+}
+.Flow-targetGood-27 circle {
+  stroke: rgb(76, 175, 80);
+  stroke-width: 2;
+}
+.Flow-targetBad-28 circle {
+  stroke: rgb(244, 67, 54);
+  stroke-width: 2;
+}
+.Flow-selected-29 text {
+  fill: #4444dd;
+}
+.Flow-selected-29 circle {
+  stroke: #4444dd;
+}
+.Flow-indicator-30 {
+  fill: rgb(255, 152, 0);
+  stroke-width: 0;
+}
+.InnerCanvas-canvas-1 {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.InnerCanvas-canvas-1 text {
+  fill: #000;
+  font-size: 12px;
+  font-family: "Roboto", "Open Sans", "Arial", sans-serif;
+  font-weight: 300;
+  text-anchor: middle;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.InnerCanvas-container-2 {
+  width: 100%;
+  height: 100%;
+}
+.InnerCanvas-overlay-3 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.InnerCanvas-noPointerEvents-4 {
+  touch-action: none;
+  pointer-events: none;
+}
+.InnerCanvas-selectionOverlay-5 {
+  fill: #6363ff;
+  stroke: #4444dd;
+  opacity: 0.2;
+  z-index: 10;
+  transform: translateZ(1);
+  stroke-width: 1;
+}
+.InnerCanvas-gLayer-6 {
+  will-update: translate;
+}
+</style>
+<defs>
+</defs><g class="InnerCanvas-gLayer-6"><g><path d="M651.8400146484374,399.23996582031253A708.3719480529784,708.3719480529784 0 0,1 610.800048828125,344.6000061035156" class="Conn-connectorBg-9"></path><path d="M651.8400146484374,399.23996582031253A708.3719480529784,708.3719480529784 0 0,1 610.800048828125,344.6000061035156" class="Conn-connector-7"></path><g><path d="M620.3991656364959,352.01665194416006L609.1491656364959,356.51665194416006A27,27 0 0,1 609.1491656364959,347.51665194416006z" class="Arrowhead-arrowheadBg-22" transform="rotate(235.12657412030637,615.8991656364959,352.01665194416006)"></path><path d="M615.8991656364959,352.01665194416006L609.8991656364959,355.01665194416006A18,18 0 0,1 609.8991656364959,349.01665194416006z" class="Arrowhead-connArrowhead-20" transform="rotate(235.12657412030637,615.8991656364959,352.01665194416006)"></path></g></g><g><path d="M602.4000244140625,259.8000183105469A74.83641117603207,74.83641117603207 0 0,1 610.800048828125,344.6000061035156" class="Conn-connectorBg-9"></path><path d="M602.4000244140625,259.8000183105469A74.83641117603207,74.83641117603207 0 0,1 610.800048828125,344.6000061035156" class="Conn-connector-7"></path><g><path d="M619.2032078356789,336.4481156374174L607.9532078356789,340.9481156374174A27,27 0 0,1 607.9532078356789,331.9481156374174z" class="Arrowhead-arrowheadBg-22" transform="rotate(112.12332526887407,614.7032078356789,336.4481156374174)"></path><path d="M614.7032078356789,336.4481156374174L608.7032078356789,339.4481156374174A18,18 0 0,1 608.7032078356789,333.4481156374174z" class="Arrowhead-connArrowhead-20" transform="rotate(112.12332526887407,614.7032078356789,336.4481156374174)"></path></g></g><g><path d="M610.800048828125,344.6000061035156A75.25430637528696,75.25430637528696 0 0,1 498,344.20001220703125" class="Conn-connectorBg-9"></path><path d="M610.800048828125,344.6000061035156A75.25430637528696,75.25430637528696 0 0,1 498,344.20001220703125" class="Conn-connector-7"></path><g><path d="M508.8565690140988,350.62452220522187L497.6065690140988,355.12452220522187A27,27 0 0,1 497.6065690140988,346.12452220522187z" class="Arrowhead-arrowheadBg-22" transform="rotate(221.86200893279207,504.3565690140988,350.62452220522187)"></path><path d="M504.3565690140988,350.62452220522187L498.3565690140988,353.62452220522187A18,18 0 0,1 498.3565690140988,347.62452220522187z" class="Arrowhead-connArrowhead-20" transform="rotate(221.86200893279207,504.3565690140988,350.62452220522187)"></path></g></g><g><path d="M478.880029296875,402.99998779296874A2251.6721342286123,2251.6721342286123 0 0,1 498,344.20001220703125" class="Conn-connectorBg-9"></path><path d="M478.880029296875,402.99998779296874A2251.6721342286123,2251.6721342286123 0 0,1 498,344.20001220703125" class="Conn-connector-7"></path><g><path d="M499.6166808786829,352.72569257447344L488.3666808786829,357.22569257447344A27,27 0 0,1 488.3666808786829,348.22569257447344z" class="Arrowhead-arrowheadBg-22" transform="rotate(-71.42936808610435,495.1166808786829,352.72569257447344)"></path><path d="M495.1166808786829,352.72569257447344L489.1166808786829,355.72569257447344A18,18 0 0,1 489.1166808786829,349.72569257447344z" class="Arrowhead-connArrowhead-20" transform="rotate(-71.42936808610435,495.1166808786829,352.72569257447344)"></path></g></g><g><path d="M498,344.20001220703125A65.54779057300414,65.54779057300414 0 0,1 518.2726610523725,258.60003662109375" class="Conn-connectorBg-9"></path><path d="M498,344.20001220703125A65.54779057300414,65.54779057300414 0 0,1 518.2726610523725,258.60003662109375" class="Conn-connector-7"></path><g><path d="M515.6891082172185,264.2322539973521L504.43910821721846,268.7322539973521A27,27 0 0,1 504.43910821721846,259.7322539973521z" class="Arrowhead-arrowheadBg-22" transform="rotate(-42.447016606692586,511.18910821721846,264.2322539973521)"></path><path d="M511.18910821721846,264.2322539973521L505.18910821721846,267.2322539973521A18,18 0 0,1 505.18910821721846,261.2322539973521z" class="Arrowhead-connArrowhead-20" transform="rotate(-42.447016606692586,511.18910821721846,264.2322539973521)"></path></g></g><g><path d="M602.4000244140625,259.8000183105469A42.969371147835226,42.969371147835226 0 0,1 518.2726610523725,258.60003662109375" class="Conn-connectorBg-9"></path><path d="M602.4000244140625,259.8000183105469A42.969371147835226,42.969371147835226 0 0,1 518.2726610523725,258.60003662109375" class="Conn-connector-7"></path><g><path d="M525.4425676809775,267.3170983768495L514.1925676809775,271.8170983768495A27,27 0 0,1 514.1925676809775,262.8170983768495z" class="Arrowhead-arrowheadBg-22" transform="rotate(246.88129458300875,520.9425676809775,267.3170983768495)"></path><path d="M520.9425676809775,267.3170983768495L514.9425676809775,270.3170983768495A18,18 0 0,1 514.9425676809775,264.3170983768495z" class="Arrowhead-connArrowhead-20" transform="rotate(246.88129458300875,520.9425676809775,267.3170983768495)"></path></g></g><g><path d="M456.79998779296875,258.60003662109375L572.4000244140625,258.60003662109375" class="Flow-flowOuter-23"></path><g><path d="M585.9000244140625,258.60003662109375L570.9000244140625,264.60003662109375A36,36 0 0,1 570.9000244140625,252.60003662109375z" class="Arrowhead-arrowheadBg-22" transform="rotate(0,579.9000244140625,258.60003662109375)"></path><path d="M579.9000244140625,258.60003662109375L571.9000244140625,262.60003662109375A24,24 0 0,1 571.9000244140625,254.60003662109375z" class="Arrowhead-flowArrowhead-18" transform="rotate(0,579.9000244140625,258.60003662109375)"></path></g><path d="M456.79998779296875,258.60003662109375L572.4000244140625,258.60003662109375" class="Flow-flowInner-25"></path><g><circle class="Flow-aux-26" cx="518.2726610523725" cy="258.60003662109375" r="9"></circle></g><g><text x="518.2726610523725" y="243.60003662109375" style="text-anchor:middle" text-rendering="optimizeLegibility"><tspan x="518.2726610523725" dy="0px">net birth rate</tspan></text></g></g><g><rect class="StockInner-stock-33" x="579.9000244140625" y="242.30001831054688" width="45" height="35"></rect><g><text x="602.4000244140625" y="236.30001831054688" style="text-anchor:middle" text-rendering="optimizeLegibility"><tspan x="602.4000244140625" dy="0px">Population</tspan></text></g></g><path d="M 25.731189,3.8741489 C 21.525742,3.8741489 18.07553,7.4486396 17.497605,12.06118 C 16.385384,10.910965 14.996889,10.217536 13.45908,10.217535 C 9.8781481,10.217535 6.9473481,13.959873 6.9473482,18.560807 C 6.9473482,19.228828 7.0507906,19.875499 7.166493,20.498196 C 3.850265,21.890233 1.5000346,25.3185 1.5000346,29.310191 C 1.5000346,34.243794 5.1009986,38.27659 9.6710049,38.715902 C 9.6186538,39.029349 9.6083922,39.33212 9.6083922,39.653348 C 9.6083922,45.134228 17.378069,49.59028 26.983444,49.590279 C 36.58882,49.590279 44.389805,45.134229 44.389803,39.653348 C 44.389803,39.35324 44.341646,39.071755 44.295883,38.778399 C 44.369863,38.780301 44.440617,38.778399 44.515029,38.778399 C 49.470875,38.778399 53.499966,34.536825 53.499965,29.310191 C 53.499965,24.377592 49.928977,20.313927 45.360301,19.873232 C 45.432415,19.39158 45.485527,18.91118 45.485527,18.404567 C 45.485527,13.821862 42.394553,10.092543 38.598118,10.092543 C 36.825927,10.092543 35.215888,10.918252 33.996078,12.248669 C 33.491655,7.5434856 29.994502,3.8741489 25.731189,3.8741489 z" class="Cloud-cloud-39" transform="matrix(0.4909090909090909, 0, 0, 0.4909090909090909, 443.29998779296875, 245.10003662109375)"></path><g><circle class="AuxInner-aux-40" cx="478.880029296875" cy="402.99998779296874" r="9"></circle><g><text x="478.880029296875" y="386.99998779296874" style="text-anchor:end" text-rendering="optimizeLegibility"><tspan x="465.880029296875" dy="1em">maximum</tspan><tspan x="465.880029296875" dy="14px">growth rate</tspan></text></g></g><g><circle class="AuxInner-aux-40" cx="651.8400146484374" cy="399.23996582031253" r="9"></circle><g><text x="651.8400146484374" y="390.23996582031253" style="text-anchor:start" text-rendering="optimizeLegibility"><tspan x="664.8400146484374" dy="1em">carrying capacity</tspan></text></g></g><g><circle class="AuxInner-aux-40" cx="498" cy="344.20001220703125" r="9"></circle><g><text x="498" y="328.20001220703125" style="text-anchor:end" text-rendering="optimizeLegibility"><tspan x="485" dy="1em">fractional </tspan><tspan x="485" dy="14px">growth rate</tspan></text></g></g><g><circle class="AuxInner-aux-40" cx="610.800048828125" cy="344.6000061035156" r="9"></circle><g><text x="610.800048828125" y="328.6000061035156" style="text-anchor:start" text-rendering="optimizeLegibility"><tspan x="623.800048828125" dy="1em">fraction of carrying</tspan><tspan x="623.800048828125" dy="14px">capacity used</tspan></text></g></g></g></svg>
