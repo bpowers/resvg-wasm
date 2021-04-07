@@ -12,8 +12,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wasm-bindgen = "0.2"
-resvg = { version = "0.14", path = "./vendor/resvg", features = [] }
-usvg = { path = "./vendor/resvg/usvg", version = "0.14", default-features = false }
+resvg = { version = "0.14", path = "./vendor/resvg", default-features = false }
+usvg = { path = "./vendor/resvg/usvg", version = "0.14", default-features = false, features = ["text"] }
 tiny-skia = "0.5"
 
 [dev-dependencies]

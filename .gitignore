@@ -3,3 +3,8 @@
 Cargo.lock
 /target
 /node_modules
+/pkg
+/pkg-node
+/lib
+/core
+/lib.browser
