@@ -2,8 +2,46 @@
   "name": "resvg-wasm",
   "version": "0.1.0",
   "description": "SVG renderer using resvg as a WebAssembly module",
-  "main": "lib/index.js",
   "repository": "https://github.com/bpowers/resvg-wasm",
-  "author": "Bobby Powers <bobbypowers@gmail.com>",
-  "license": "MPL-2.0"
+  "author": {
+    "name": "Bobby Powers",
+    "email": "bobbypowers@gmail.com"
+  },
+  "license": "MPL-2.0",
+  "main": "lib",
+  "browser": "lib.browser",
+  "exports": {
+    ".": {
+      "module": "./lib.browser/index.js",
+      "node": "./lib/index.js"
+    },
+    "./*": {
+      "module": "./lib.browser/*.js",
+      "node": "./lib/*.js"
+    },
+    "./core/*": {
+      "module": "./lib.browser/core/*.js",
+      "node": "./lib/core/*.js"
+    }
+  },
+  "sideEffects": false,
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.0.1",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "needs-format": "prettier -l '*.ts'",
+    "format": "prettier --write '*.ts'",
+    "lint": "eslint '*.ts'",
+    "prepublishOnly": "yarn build",
+    "clean": "rm -rf ./lib ./lib.browser",
+    "build": "./build.sh"
+  }
 }

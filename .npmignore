@@ -1,0 +1,9 @@
+src
+.npmignore
+tsconfig*
+/*.wasm
+.eslintrc.js
+/core
+/tests
+Cargo.*
+build.sh
