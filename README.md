@@ -1,0 +1,1 @@
+# resvg-wasm: resvg compiled to wasm
