@@ -1,6 +1,6 @@
 [package]
 name = "resvg-wasm"
-version = "0.1.0"
+version = "0.1.1"
 description = "resvg as a wasm module"
 repository = "https://github.com/bpowers/resvg-wasm"
 authors = ["Bobby Powers <bobbypowers@gmail.com>"]
