@@ -1,6 +1,6 @@
 [package]
 name = "resvg-wasm"
-version = "0.1.1"
+version = "0.1.2"
 description = "resvg as a wasm module"
 repository = "https://github.com/bpowers/resvg-wasm"
 authors = ["Bobby Powers <bobbypowers@gmail.com>"]
@@ -12,8 +12,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wasm-bindgen = "0.2"
-resvg = { version = "0.15", default-features = false, git = "https://github.com/bpowers/resvg", rev = "7a7abbe4132fb7e765062726a4f379c86fe5e4e0" }
-usvg = { version = "0.15", default-features = false, features = ["text"], git = "https://github.com/bpowers/resvg", rev = "7a7abbe4132fb7e765062726a4f379c86fe5e4e0" }
+resvg = { version = "0.15", default-features = false, git = "https://github.com/bpowers/resvg", rev = "6f4159e314440ebb82979d777099cf03d121e612" }
+usvg = { version = "0.15", default-features = false, features = ["text"], git = "https://github.com/bpowers/resvg", rev = "6f4159e314440ebb82979d777099cf03d121e612" }
 tiny-skia = "0.5"
 
 [dev-dependencies]

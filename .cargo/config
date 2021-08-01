@@ -1,0 +1,7 @@
+[unstable]
+build-std = ['std', 'panic_abort']
+
+[build]
+target = "wasm32-unknown-unknown"
+# rustflags = ["-Ctarget-feature=+simd128,+bulk-memory"]
+rustflags = ["-Ctarget-feature=+bulk-memory,+mutable-globals,+sign-ext,+nontrapping-fptoint"]

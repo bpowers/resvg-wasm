@@ -18,8 +18,8 @@ wasm-bindgen ./target/wasm32-unknown-unknown/release/${PKG_NAME}.wasm --out-dir 
 
 if [ "1" != "${DISABLE_WASM_OPT-0}" ]; then
   echo "running wasm-opt"
-  wasm-opt pkg/${PKG_NAME}_bg.wasm -o pkg/${PKG_NAME}_bg.wasm-opt.wasm -O3 --enable-mutable-globals
-  wasm-opt pkg-node/${PKG_NAME}_bg.wasm -o pkg-node/${PKG_NAME}_bg.wasm-opt.wasm -O3 --enable-mutable-globals
+  wasm-opt pkg/${PKG_NAME}_bg.wasm -o pkg/${PKG_NAME}_bg.wasm-opt.wasm -O3 --enable-mutable-globals --enable-simd --enable-nontrapping-float-to-int --enable-sign-ext --enable-nontrapping-float-to-int
+  wasm-opt pkg-node/${PKG_NAME}_bg.wasm -o pkg-node/${PKG_NAME}_bg.wasm-opt.wasm -O3 --enable-mutable-globals --enable-simd --enable-nontrapping-float-to-int --enable-sign-ext --enable-nontrapping-float-to-int
   mv pkg/${PKG_NAME}_bg.{wasm-opt.,}wasm
   mv pkg-node/${PKG_NAME}_bg.{wasm-opt.,}wasm
 else
