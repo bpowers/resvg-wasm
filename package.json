@@ -24,6 +24,9 @@
       "node": "./lib/core/*.js"
     }
   },
+  "engines": {
+    "node": ">=16"
+  },
   "sideEffects": false,
   "dependencies": {},
   "devDependencies": {
