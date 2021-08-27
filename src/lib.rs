@@ -25,20 +25,29 @@ impl Context {
         width: Option<u32>,
         height: Option<u32>,
     ) -> Option<Vec<u8>> {
-        let mut svg_options = usvg::Options::default();
 
-        for font in self.fonts.iter() {
-            svg_options.fontdb.load_font_data(font.clone())
-        }
+        let fontdb = {
+            let mut db = fontdb::Database::new();
+            for font in self.fonts.iter() {
+                db.load_font_data(font.clone())
+            }
+            db
+        };
+
+        let svg_options = usvg::OptionsRef {
+            resources_dir: None,
+            dpi: 192.0,
+            font_family: "Roboto Light",
+            font_size: 0.0,
+            languages: &["en".to_owned()],
+            shape_rendering: usvg::ShapeRendering::GeometricPrecision,
+            text_rendering: usvg::TextRendering::OptimizeLegibility,
+            image_rendering: usvg::ImageRendering::OptimizeQuality,
+            keep_named_groups: false,
+            fontdb: &fontdb,
+        };
 
         let scale = scale.unwrap_or(2.0);
-
-        svg_options.dpi = 192.0;
-        svg_options.shape_rendering = usvg::ShapeRendering::GeometricPrecision;
-        svg_options.text_rendering = usvg::TextRendering::OptimizeLegibility;
-        svg_options.image_rendering = usvg::ImageRendering::OptimizeQuality;
-        svg_options.font_family = "Roboto Light".to_owned();
-        svg_options.languages = vec!["en".to_owned()];
 
         let rtree = usvg::Tree::from_data(svg_xml.as_bytes(), &svg_options).unwrap();
 
@@ -64,11 +73,12 @@ impl Context {
         }
 
         for face in svg_options.fontdb.faces() {
-            let usvg::fontdb::Source::Binary(_) = &*face.source;
-            s += &*format!(
-                "binary: '{}', {}, {:?}, {:?}, {:?}\n",
-                face.family, face.index, face.style, face.weight.0, face.stretch
-            );
+            if let usvg::fontdb::Source::Binary(_) = &*face.source {
+                s += &*format!(
+                    "binary: '{}', {}, {:?}, {:?}, {:?}\n",
+                    face.family, face.index, face.style, face.weight.0, face.stretch
+                );
+            }
         }
         s
     }
