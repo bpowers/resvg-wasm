@@ -44,6 +44,7 @@ impl Context {
             text_rendering: usvg::TextRendering::OptimizeLegibility,
             image_rendering: usvg::ImageRendering::OptimizeQuality,
             keep_named_groups: false,
+            default_size: usvg::Size::new(100.0, 100.0).unwrap(),
             fontdb: &fontdb,
         };
 
@@ -57,7 +58,7 @@ impl Context {
             (height.unwrap_or_else(|| pixmap_size.height()) as f64 * scale).ceil() as u32,
         )
         .unwrap();
-        resvg::render(&rtree, usvg::FitTo::Zoom(scale as f32), pixmap.as_mut()).unwrap();
+        resvg::render(&rtree, usvg::FitTo::Zoom(scale as f32), tiny_skia::Transform::identity(), pixmap.as_mut()).unwrap();
 
         Some(pixmap.encode_png().unwrap())
     }
@@ -73,7 +74,7 @@ impl Context {
         }
 
         for face in svg_options.fontdb.faces() {
-            if let usvg::fontdb::Source::Binary(_) = &*face.source {
+            if let usvg::fontdb::Source::Binary(_) = &face.source {
                 s += &*format!(
                     "binary: '{}', {}, {:?}, {:?}, {:?}\n",
                     face.family, face.index, face.style, face.weight.0, face.stretch
