@@ -1,6 +1,6 @@
 {
   "name": "resvg-wasm",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "SVG renderer using resvg as a WebAssembly module",
   "repository": "https://github.com/bpowers/resvg-wasm",
   "author": {

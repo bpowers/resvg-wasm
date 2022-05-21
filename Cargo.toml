@@ -12,9 +12,9 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wasm-bindgen = "0.2"
-resvg = { version = "0.20", default-features = false }
-usvg = { version = "0.20", default-features = false, features = ["text"] }
-fontdb = "0.7"
+resvg = { version = "0.22", default-features = false }
+usvg = { version = "0.22", default-features = false, features = ["text"] }
+fontdb = "0.9"
 tiny-skia = "0.6"
 
 [dev-dependencies]

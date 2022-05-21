@@ -46,6 +46,7 @@ impl Context {
             keep_named_groups: false,
             default_size: usvg::Size::new(100.0, 100.0).unwrap(),
             fontdb: &fontdb,
+            image_href_resolver: &Default::default(),
         };
 
         let scale = scale.unwrap_or(2.0);
