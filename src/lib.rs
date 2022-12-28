@@ -3,6 +3,7 @@
 // License, Version 2.0, that can be found in the LICENSE file.
 
 use wasm_bindgen::prelude::*;
+use usvg_text_layout::{fontdb, TreeTextToPath};
 
 #[wasm_bindgen]
 #[derive(Default, Clone)]
@@ -34,26 +35,26 @@ impl Context {
             db
         };
 
-        let svg_options = usvg::OptionsRef {
+        let svg_options = usvg::Options {
             resources_dir: None,
             dpi: 192.0,
-            font_family: "Roboto Light",
+            font_family: "Roboto Light".to_owned(),
             font_size: 0.0,
-            languages: &["en".to_owned()],
+            languages: vec!["en".to_owned()],
             shape_rendering: usvg::ShapeRendering::GeometricPrecision,
             text_rendering: usvg::TextRendering::OptimizeLegibility,
             image_rendering: usvg::ImageRendering::OptimizeQuality,
             keep_named_groups: false,
             default_size: usvg::Size::new(100.0, 100.0).unwrap(),
-            fontdb: &fontdb,
-            image_href_resolver: &Default::default(),
+            image_href_resolver: Default::default(),
         };
 
         let scale = scale.unwrap_or(2.0);
 
-        let rtree = usvg::Tree::from_data(svg_xml.as_bytes(), &svg_options).unwrap();
+        let mut rtree = usvg::Tree::from_data(svg_xml.as_bytes(), &svg_options).unwrap();
+        rtree.convert_text(&fontdb, true);
 
-        let pixmap_size = rtree.svg_node().size.to_screen_size();
+        let pixmap_size = rtree.size.to_screen_size();
         let mut pixmap = tiny_skia::Pixmap::new(
             (width.unwrap_or_else(|| pixmap_size.width()) as f64 * scale).ceil() as u32,
             (height.unwrap_or_else(|| pixmap_size.height()) as f64 * scale).ceil() as u32,
@@ -66,16 +67,16 @@ impl Context {
 
     #[wasm_bindgen(js_name = listFonts)]
     pub fn list_fonts(&self) -> String {
-        let mut svg_options = usvg::Options::default();
+        let mut fontdb = fontdb::Database::new();
 
         let mut s = "fonts:\n".to_owned();
         for font in self.fonts.iter() {
             s += &*format!("loading buf len {}\n", font.len());
-            svg_options.fontdb.load_font_data(font.clone())
+            fontdb.load_font_data(font.clone())
         }
 
-        for face in svg_options.fontdb.faces() {
-            if let usvg::fontdb::Source::Binary(_) = &face.source {
+        for face in fontdb.faces() {
+            if let fontdb::Source::Binary(_) = &face.source {
                 s += &*format!(
                     "binary: '{}', {}, {:?}, {:?}, {:?}\n",
                     face.family, face.index, face.style, face.weight.0, face.stretch
