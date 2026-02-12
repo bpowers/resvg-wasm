@@ -4,7 +4,7 @@
     "rootDir": ".",
     "outDir": "lib",
     "module": "commonjs",
-    "lib": ["ES2022", "DOM"]
+    "lib": ["ESNext", "DOM"]
   },
   "exclude": ["lib", "lib.browser"]
 }

@@ -4,21 +4,13 @@
 
 export interface Context {
   free(): void;
-  /**
-   * @param {Uint8Array} font_data
-   */
+  [Symbol.dispose](): void;
   registerFontData(font_data: Uint8Array): void;
-  /**
-   * @param {string} svg_xml
-   * @param {number | undefined} scale
-   * @param {number | undefined} width
-   * @param {number | undefined} height
-   * @returns {Uint8Array | undefined}
-   */
   render(
     svg_xml: string,
-    scale?: number,
-    width?: number,
-    height?: number,
+    scale?: number | null,
+    width?: number | null,
+    height?: number | null,
   ): Uint8Array | undefined;
+  listFonts(): string;
 }

@@ -2,8 +2,11 @@
 // Use of this source code is governed by the Mozilla Public
 // License, Version 2.0, that can be found in the LICENSE file.
 
+use std::sync::Arc;
+
+use resvg::tiny_skia;
+use resvg::usvg;
 use wasm_bindgen::prelude::*;
-use usvg_text_layout::{fontdb, TreeTextToPath};
 
 #[wasm_bindgen]
 #[derive(Default, Clone)]
@@ -20,68 +23,62 @@ impl Context {
 
     #[wasm_bindgen]
     pub fn render(
-        &mut self,
+        &self,
         svg_xml: &str,
         scale: Option<f64>,
         width: Option<u32>,
         height: Option<u32>,
     ) -> Option<Vec<u8>> {
-
-        let fontdb = {
-            let mut db = fontdb::Database::new();
-            for font in self.fonts.iter() {
-                db.load_font_data(font.clone())
-            }
-            db
-        };
+        let mut fontdb = usvg::fontdb::Database::new();
+        for font in &self.fonts {
+            fontdb.load_font_data(font.clone());
+        }
 
         let svg_options = usvg::Options {
-            resources_dir: None,
             dpi: 192.0,
             font_family: "Roboto Light".to_owned(),
-            font_size: 0.0,
-            languages: vec!["en".to_owned()],
             shape_rendering: usvg::ShapeRendering::GeometricPrecision,
             text_rendering: usvg::TextRendering::OptimizeLegibility,
             image_rendering: usvg::ImageRendering::OptimizeQuality,
-            keep_named_groups: false,
-            default_size: usvg::Size::new(100.0, 100.0).unwrap(),
-            image_href_resolver: Default::default(),
+            fontdb: Arc::new(fontdb),
+            ..usvg::Options::default()
         };
 
         let scale = scale.unwrap_or(2.0);
 
-        let mut rtree = usvg::Tree::from_data(svg_xml.as_bytes(), &svg_options).unwrap();
-        rtree.convert_text(&fontdb, true);
+        let tree = usvg::Tree::from_str(svg_xml, &svg_options).ok()?;
 
-        let pixmap_size = rtree.size.to_screen_size();
-        let mut pixmap = tiny_skia::Pixmap::new(
-            (width.unwrap_or_else(|| pixmap_size.width()) as f64 * scale).ceil() as u32,
-            (height.unwrap_or_else(|| pixmap_size.height()) as f64 * scale).ceil() as u32,
-        )
-        .unwrap();
-        resvg::render(&rtree, usvg::FitTo::Zoom(scale as f32), tiny_skia::Transform::identity(), pixmap.as_mut()).unwrap();
+        let size = tree.size().to_int_size();
+        let scaled_width = (width.unwrap_or(size.width()) as f64 * scale).ceil() as u32;
+        let scaled_height = (height.unwrap_or(size.height()) as f64 * scale).ceil() as u32;
 
-        Some(pixmap.encode_png().unwrap())
+        let mut pixmap = tiny_skia::Pixmap::new(scaled_width, scaled_height)?;
+
+        let transform = tiny_skia::Transform::from_scale(scale as f32, scale as f32);
+        resvg::render(&tree, transform, &mut pixmap.as_mut());
+
+        Some(pixmap.encode_png().ok()?)
     }
 
     #[wasm_bindgen(js_name = listFonts)]
     pub fn list_fonts(&self) -> String {
-        let mut fontdb = fontdb::Database::new();
+        let mut fontdb = usvg::fontdb::Database::new();
 
         let mut s = "fonts:\n".to_owned();
-        for font in self.fonts.iter() {
-            s += &*format!("loading buf len {}\n", font.len());
-            fontdb.load_font_data(font.clone())
+        for font in &self.fonts {
+            s += &format!("loading buf len {}\n", font.len());
+            fontdb.load_font_data(font.clone());
         }
 
         for face in fontdb.faces() {
-            if let fontdb::Source::Binary(_) = &face.source {
-                s += &*format!(
-                    "binary: '{}', {}, {:?}, {:?}, {:?}\n",
-                    face.family, face.index, face.style, face.weight.0, face.stretch
-                );
-            }
+            s += &format!(
+                "binary: '{}', {}, {:?}, {:?}, {:?}\n",
+                face.families[0].0,
+                face.index,
+                face.style,
+                face.weight.0,
+                face.stretch
+            );
         }
         s
     }
