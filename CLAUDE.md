@@ -8,11 +8,11 @@ resvg-wasm compiles the Rust resvg SVG rendering library to WebAssembly, providi
 
 ## Build Commands
 
-- `yarn build` -- full build (Rust -> WASM -> TypeScript). Requires `cargo`, `wasm-bindgen`, and `wasm-opt` on PATH. Set `DISABLE_WASM_OPT=1` to skip wasm-opt.
-- `yarn lint` -- ESLint on TypeScript source files
-- `yarn format` -- Prettier formatting
-- `yarn needs-format` -- check if formatting is needed
-- `yarn clean` -- remove build artifacts
+- `pnpm build` -- full build (Rust -> WASM -> TypeScript). Requires `cargo`, `wasm-bindgen`, and `wasm-opt` on PATH. Set `DISABLE_WASM_OPT=1` to skip wasm-opt.
+- `pnpm lint` -- ESLint on TypeScript source files
+- `pnpm format` -- Prettier formatting
+- `pnpm needs-format` -- check if formatting is needed
+- `pnpm clean` -- remove build artifacts
 
 There are no automated tests beyond a placeholder in `tests/web.rs`.
 

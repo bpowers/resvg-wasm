@@ -2,7 +2,7 @@ src
 .npmignore
 tsconfig*
 /*.wasm
-.eslintrc.js
+eslint.config.mjs
 /core
 /tests
 Cargo.*
@@ -12,3 +12,6 @@ build.sh
 /test.mjs
 /.idea
 /*.svg
+pnpm-lock.yaml
+CLAUDE.md
+deny.toml

@@ -4,13 +4,7 @@
     "rootDir": ".",
     "outDir": "lib.browser",
     "module": "esnext",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["ES2022", "DOM"]
   },
-  "exclude": [
-    "lib",
-    "lib.browser"
-  ]
+  "exclude": ["lib", "lib.browser"]
 }

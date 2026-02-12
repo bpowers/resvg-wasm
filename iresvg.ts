@@ -19,6 +19,6 @@ export interface Context {
     svg_xml: string,
     scale?: number,
     width?: number,
-    height?: number
+    height?: number,
   ): Uint8Array | undefined;
 }
