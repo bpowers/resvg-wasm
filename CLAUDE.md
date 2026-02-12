@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 resvg-wasm compiles the Rust resvg SVG rendering library to WebAssembly, providing SVG-to-PNG rendering for both Node.js and browser environments. Published as an npm package with zero runtime dependencies.
 
+Minimum Node.js version: 22.
+
 ## Build Commands
 
 - `pnpm build` -- full build (Rust -> WASM -> TypeScript). Requires `cargo`, `wasm-bindgen`, and `wasm-opt` on PATH. Set `DISABLE_WASM_OPT=1` to skip wasm-opt.
