@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "lib.workerd",
+    "module": "esnext",
+    "lib": ["ESNext", "DOM"]
+  },
+  "exclude": ["lib", "lib.browser", "lib.workerd"]
+}

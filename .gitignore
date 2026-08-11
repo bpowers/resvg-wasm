@@ -11,3 +11,5 @@ Cargo.lock
 /perf.data
 /perf.data.old
 /out.png
+/lib.workerd
+/pkg-workerd

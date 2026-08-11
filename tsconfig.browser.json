@@ -6,5 +6,5 @@
     "module": "esnext",
     "lib": ["ESNext", "DOM"]
   },
-  "exclude": ["lib", "lib.browser"]
+  "exclude": ["lib", "lib.browser", "lib.workerd"]
 }

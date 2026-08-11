@@ -12,14 +12,17 @@
   "browser": "lib.browser",
   "exports": {
     ".": {
+      "workerd": "./lib.workerd/index.js",
       "module": "./lib.browser/index.js",
       "node": "./lib/index.js"
     },
     "./*": {
+      "workerd": "./lib.workerd/*.js",
       "module": "./lib.browser/*.js",
       "node": "./lib/*.js"
     },
     "./core/*": {
+      "workerd": "./lib.workerd/core/*.js",
       "module": "./lib.browser/core/*.js",
       "node": "./lib/core/*.js"
     }
@@ -42,7 +45,7 @@
     "format": "prettier --write '*.ts'",
     "lint": "eslint '*.ts'",
     "prepublishOnly": "pnpm build",
-    "clean": "rm -rf ./lib ./lib.browser",
+    "clean": "rm -rf ./lib ./lib.browser ./lib.workerd",
     "build": "./build.sh"
   }
 }

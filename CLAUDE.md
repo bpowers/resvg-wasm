@@ -22,20 +22,21 @@ There are no automated tests beyond a placeholder in `tests/web.rs`.
 
 **Rust layer** (`src/lib.rs`): The `Context` struct (exported via wasm-bindgen) holds registered font data and exposes `registerFontData()`, `render()`, and `listFonts()` to JS. `newContext()` is the factory function. Rendering parses SVG with usvg, converts text to paths using fontdb, rasterizes with tiny-skia, and encodes to PNG.
 
-**TypeScript layer**: Two entry points compile to different module formats:
+**TypeScript layer**: Three entry points compile to different module formats:
 - `index.ts` -- browser entry (ESM), uses dynamic `import()` for WASM loading with a module cache
 - `index_main.ts` -- Node.js entry (CommonJS), same pattern but compiled differently. During build, this replaces `index.js` in the `lib/` output.
+- `index_workerd.ts` -- Cloudflare Workers entry (ESM), statically imports the `.wasm` file (which workerd/wrangler provide as a precompiled `WebAssembly.Module`) and passes it to the web-target init function. Replaces `index.js` in the `lib.workerd/` output.
 
 `iresvg.ts` defines the `Context` TypeScript interface matching the Rust wasm-bindgen exports.
 
-**Dual-target build** (`build.sh`):
+**Triple-target build** (`build.sh`):
 1. `cargo build` compiles Rust to `wasm32-unknown-unknown`
-2. `wasm-bindgen` generates JS/TS bindings twice: `--target bundler` (browser) and `--target nodejs`
-3. `wasm-opt -O3` optimizes both WASM binaries
-4. TypeScript compiles twice: `tsconfig.json` (CommonJS -> `lib/`) and `tsconfig.browser.json` (ESNext -> `lib.browser/`)
-5. Build script reorganizes outputs so `lib/core/` has Node.js WASM bindings, `lib.browser/core/` has bundler bindings
+2. `wasm-bindgen` generates JS/TS bindings three times: `--target bundler` (browser), `--target nodejs`, and `--target web` (Cloudflare Workers)
+3. `wasm-opt -O3` optimizes all three WASM binaries
+4. TypeScript compiles three times: `tsconfig.json` (CommonJS -> `lib/`), `tsconfig.browser.json` (ESNext -> `lib.browser/`), and `tsconfig.workerd.json` (ESNext -> `lib.workerd/`)
+5. Build script reorganizes outputs so `lib/core/` has Node.js WASM bindings, `lib.browser/core/` has bundler bindings, and `lib.workerd/core/` has web-target bindings
 
-**Package exports**: Conditional exports in `package.json` route `node` imports to `lib/` and `module` imports to `lib.browser/`.
+**Package exports**: Conditional exports in `package.json` route `node` imports to `lib/`, `module` imports to `lib.browser/`, and `workerd` imports (resolved by wrangler when bundling a Worker) to `lib.workerd/`.
 
 ## Rust Build Configuration
 
